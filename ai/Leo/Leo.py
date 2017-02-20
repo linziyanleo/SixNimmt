@@ -15,6 +15,7 @@ class AI:
         self.cards = newGamedata[:]
         pass
     def InfoGame(self, gameData):
+		self.cards = gameData #from the help of master siyao
         pass
     def InfoMove(self, cardData):
         pass
@@ -23,10 +24,42 @@ class AI:
     def InfoGameEnd(self, gameEndData):
         pass
     def CmdPickCard(self):
-        random.shuffle(self.cards)
+        self.cards.sort()
+		row = self.infoGame["rows"]
+		for i in self.cards:
+			if i < row[0][0]:
+				
+			for n in range(4):
+				if 
+				pri = abs(row[n][-1]-i)
+				
+
         return self.cards.pop()
+
+	#from the help of master Acc404
+	def Xscore(self,data):
+		sumRow = []
+		for i in range(4):
+			rowData = data[i]
+			rowScore = 0
+			for n in rowData:
+				if i == 55:
+					rowScore += 7
+				elif n%11 == 0:
+					rowScore += 5
+				elif n%10 ++ 0:
+					rowScore += 3
+				elif n%5 == 0:
+					rowScore += 2
+				else:
+					rowScore += 1
+			sumRow.append(rowScore)
+		return sumRow
+
     def CmdPickRow(self):
-        return random.randint(0,3)
+		row = self.infoGame["rows"]
+		sumRow = self.Xscore(row)
+        return sumRow
     def ProcessInfo(self):
         line = sys.stdin.readline()
         if line == '':
@@ -65,4 +98,5 @@ class AI:
 
 if __name__ == '__main__':
     ai = AI()
-    ai.Start()
+ 
+ai.Start()
