@@ -15,7 +15,7 @@ class AI:
         self.cards = newGamedata[:]
         pass
     def InfoGame(self, gameData):
-		self.cards = gameData #from the help of master siyao
+		self.cards = gameData #from the help of dalao siyao
         pass
     def InfoMove(self, cardData):
         pass
@@ -26,17 +26,22 @@ class AI:
     def CmdPickCard(self):
         self.cards.sort()
 		row = self.infoGame["rows"]
+        cardScore = []
 		for i in self.cards:
+            chance = (i,0)
+            for m in range(3):
+                if row[m][0] < i < row[m+1][0]:
+                    chance =  (i,i-row[m][0])
 			if i < row[0][0]:
-				
+				pass
 			for n in range(4):
-				if 
+				
 				pri = abs(row[n][-1]-i)
 				
-
+        random.shuffle(self.cards)
         return self.cards.pop()
 
-	#from the help of master Acc404
+	#from the help of dalao Acc404
 	def Xscore(self,data):
 		sumRow = []
 		for i in range(4):
